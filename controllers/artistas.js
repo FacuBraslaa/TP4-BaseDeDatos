@@ -1,22 +1,7 @@
 import { conn } from "../db.js";
 
 const getArtistas = async (_, res) => {
-    // Completar con la consulta que devuelve todos los artistas
-    // Recordar que los parámetros de una consulta GET se encuentran en req.params
-    // Deberían devolver los datos de la siguiente forma:
-    /*
-        [
-            {
-                "id": "Id del artista",
-                "nombre": "Nombre del artista"
-            },
-            {
-                "id": "Id del artista",
-                "nombre": "Nombre del artista"
-            },
-            ...
-        ]
-    */
+    conn.query("SELECT * from artistas").then(dbResponse=> res.json(dbResponse[0]))
 };
 
 const getArtista = async (req, res) => {
